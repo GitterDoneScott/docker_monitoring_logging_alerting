@@ -1,0 +1,74 @@
+version: '2.1'
+
+
+services:
+
+  master-nodeexporter:
+    extends:
+      file: docker-compose.yml
+      service: master-nodeexporter
+
+  master-cadvisor:
+    extends:
+      file: docker-compose.yml
+      service: master-cadvisor
+
+  prometheus:
+    extends:
+      file: docker-compose.yml
+      service: prometheus
+    networks:
+      - default 
+      - reverse-proxy
+    volumes:
+      - prometheus_storage:/prometheus
+    environment:
+      - VIRTUAL_HOST=prometheus.${DNS_SUFFIX:-local}
+      - LETSENCRYPT_HOST=prometheus.${DNS_SUFFIX:-local}
+      - LETSENCRYPT_EMAIL=${LETS_ENC_EMAIL:-SUBFAIL}
+
+  blackboxprober:
+    extends:
+      file: docker-compose.yml
+      service: blackboxprober
+
+  grafana:
+    extends:
+      file: docker-compose.yml
+      service: grafana
+    networks:
+      - default
+      - reverse-proxy
+    environment:
+      - VIRTUAL_HOST=grafana.${DNS_SUFFIX:-local}
+      - LETSENCRYPT_HOST=grafana.${DNS_SUFFIX:-local}
+      - LETSENCRYPT_EMAIL=${LETS_ENC_EMAIL:-SUBFAIL}
+#      - GF_SECURITY_ADMIN_PASSWORD=${PASSWORD}
+
+  alertmanager:
+    extends:
+      file: docker-compose.yml
+      service: alertmanager
+    networks:
+      - default
+      - reverse-proxy
+    environment:
+      - VIRTUAL_HOST=alertmanager.${DNS_SUFFIX:-local}
+      - LETSENCRYPT_HOST=alertmanager.${DNS_SUFFIX:-local}
+      - LETSENCRYPT_EMAIL=${LETS_ENC_EMAIL:-SUBFAIL}
+
+networks:
+  default:
+    external:
+      name: monitoring_logging
+  reverse-proxy:
+    external:
+      name: reverse-proxy
+
+volumes:
+  prometheus_storage:
+    driver: "local"
+    driver_opts:
+      device: "${VOL_DEVICE_PREFIX_SSD:-SUBFAIL}/containers/prometheus/storage"
+      type: ${VOL_TYPE:-SUBFAIL}
+      o: ${VOL_OPS:-SUBFAIL}

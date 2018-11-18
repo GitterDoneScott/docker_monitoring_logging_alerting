@@ -1,0 +1,64 @@
+version: '2.1'
+
+
+services:
+
+  master-filebeat:
+    extends:
+      file: docker-compose.yml
+      service: master-filebeat
+
+  logstash:
+    extends:
+      file: docker-compose.yml
+      service: logstash
+
+  validate-logstash-config:
+    extends:
+      file: docker-compose.yml
+      service: validate-logstash-config
+
+  elasticsearch:
+    extends:
+      file: docker-compose.yml
+      service: elasticsearch
+    volumes:
+      - elastic_storage:/usr/share/elasticsearch/data
+  curator:
+    extends:
+      file: docker-compose.yml
+      service: curator
+
+  kibana:
+    extends:
+      file: docker-compose.yml
+      service: kibana
+    networks:
+      - default 
+      - reverse-proxy
+    environment:
+      - VIRTUAL_HOST=kibana.${DNS_SUFFIX:-local}
+      - LETSENCRYPT_HOST=kibana.${DNS_SUFFIX:-local}
+      - LETSENCRYPT_EMAIL=${LETS_ENC_EMAIL:-SUBFAIL}
+
+  elastalert:
+    extends:
+      file: docker-compose.yml
+      service: elastalert
+
+networks:
+  default:
+    external:
+      name: monitoring_logging
+  reverse-proxy:
+    external:
+      name: reverse-proxy
+
+volumes:
+  elastic_storage:
+    driver: "local"
+    driver_opts:
+      device: "${VOL_DEVICE_PREFIX_SSD:-SUBFAIL}/containers/elasticsearch_log/storage"
+      type: ${VOL_TYPE:-SUBFAIL}
+      o: ${VOL_OPS:-SUBFAIL}
+
