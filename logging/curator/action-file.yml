@@ -8,7 +8,7 @@
 actions:
   1:
     action: delete_indices
-    description: "Delete selected indices"
+    description: "Delete logstash- indices older than x days"
     options:
       ignore_empty_list: True
       timeout_override:
@@ -23,8 +23,8 @@ actions:
         source: name
         direction: older
         timestring: '%Y.%m.%d'
-        unit: months
-        unit_count: 3
+        unit: days
+        unit_count: 14
         field:
         stats_result:
         epoch:

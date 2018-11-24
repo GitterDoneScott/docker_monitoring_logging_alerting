@@ -25,8 +25,9 @@ scrape_configs:
     scrape_interval: 10s
     scrape_timeout: 5s
     static_configs:
-      - targets: ['master-nodeexporter:9100']
-        labels: {'host': 'host1'}
+      - targets: ['master-nodeexporter:9100', 'nas:9100']
+        labels: 
+          group: 'node-exporters'
 
   - job_name: 'containers'
     scrape_interval: 10s
