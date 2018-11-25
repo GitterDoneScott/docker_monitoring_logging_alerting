@@ -1,6 +1,5 @@
 version: '2.1'
 
-
 services:
 
 #########################################################
@@ -20,7 +19,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: udp://172.16.0.38:12201
+        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
         labels: container_group
 
 #########################################################
@@ -43,7 +42,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: udp://172.16.0.38:12201
+        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
         labels: container_group
     command: logstash -f /config
 
@@ -70,7 +69,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: udp://172.16.0.38:12201
+        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
         labels: container_group
     networks:
       default:
@@ -82,18 +81,20 @@ services:
 #########################################################
 
   # Takes care of piling piling up Elasticsearch indices/logs. Can do many other things as well.
-  # Set up a cron or Jenkins job that runs "docker-compose run --rm curator --config /config.yml /action-file.yml" every once in a while.
+
   curator:
-    image: bobrik/curator:5.5.1
-    volumes:
-      - ./curator/action-file.yml:/action-file.yml
-      - ./curator/config.yml:/config.yml
+    image: stefanprodan/es-curator-cron
+    environment:
+      - "PERIOD=15min"
+      - "KEEP_DAYS=14"
+      - "INDEX_PREFIX=logstash"
+    command: "--host elasticsearch --port 9200"
     labels:
       container_group: logging
     logging:
       driver: gelf
       options:
-        gelf-address: udp://172.16.0.38:12201
+        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
         labels: container_group
 
 #########################################################
@@ -109,7 +110,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: udp://172.16.0.38:12201
+        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
         labels: container_group
     environment:
       - NODE_OPTIONS=--max-old-space-size=200 # fixes memory leak (https://github.com/elastic/kibana/issues/5170)
@@ -132,7 +133,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: udp://172.16.0.38:12201
+        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
         labels: container_group
 
 #########################################################
@@ -147,27 +148,3 @@ networks:
 
 #########################################################
 
-  # watcher (ELK):
-  # fluentd (Logstash alternative) :
-  # topbeat (Metrics for ELK):
-
-
-  #### Get a free datadog account to have a look at their dashboards for inspiration:
-  #   datadog:
-  #   container_name: datadog
-  #   image: datadog/docker-dd-agent
-  #   hostname: datadog
-  #   volumes:
-  #     - /var/run/docker.sock:/var/run/docker.sock
-  #     - /proc/:/host/proc/:ro
-  #     - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
-  #   restart: always
-  #   labels:
-  #     container_group: monitoring
-  #   logging:
-  #     driver: gelf
-  #     options:
-  #       gelf-address: udp://localhost:12201
-  #       labels: container_group
-  #   environment:
-  #     - API_KEY=
