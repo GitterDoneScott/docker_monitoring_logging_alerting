@@ -5,8 +5,8 @@
     echo "------------------------------------------------------------"
     echo "############################### Stopping and removing containers..."
     echo "------------------------------------------------------------"
-    docker-compose -f monitoring/docker-compose.mysecure.yml down -v
-    docker-compose -f logging/docker-compose.mysecure.yml down -v
+    /opt/bin/docker-compose -f monitoring/docker-compose.mysecure.yml down -v
+    /opt/bin/docker-compose -f logging/docker-compose.mysecure.yml down -v
 
   echo "------------------------------------------------------------"
   echo "############################### Removing network..."

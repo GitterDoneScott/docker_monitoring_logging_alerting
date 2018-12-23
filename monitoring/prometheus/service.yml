@@ -1,7 +1,9 @@
-- targets: ['http://google.com']
-  labels: 
-    service_name: 'google'
-
-- targets: ['http://bing.com']
-  labels: 
-    service_name: 'bing'
+- targets: ['http://www.cai-chicago.com']
+  labels:
+    service_name: 'cai-chicago.com'
+- targets: ['https://www.makingoodtime.com']
+  labels:
+    service_name: 'makingoodtime.com'
+- targets: ['http://plex.p.pharegrp.com']
+  labels:
+    service_name: 'Parents Plex'

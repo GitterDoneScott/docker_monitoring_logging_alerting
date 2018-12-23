@@ -29,6 +29,11 @@ services:
       file: docker-compose.yml
       service: blackboxprober
 
+  snmpexporter:
+    extends:
+      file: docker-compose.yml
+      service: snmpexporter
+
   grafana:
     extends:
       file: docker-compose.yml

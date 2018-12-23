@@ -1,0 +1,788 @@
+router:
+  walk:
+  - 1.3.6.1.2.1.2.2.1.1
+  - 1.3.6.1.2.1.2.2.1.10
+  - 1.3.6.1.2.1.2.2.1.11
+  - 1.3.6.1.2.1.2.2.1.14
+  - 1.3.6.1.2.1.2.2.1.16
+  - 1.3.6.1.2.1.2.2.1.17
+  - 1.3.6.1.2.1.2.2.1.2
+  - 1.3.6.1.2.1.2.2.1.20
+  - 1.3.6.1.2.1.2.2.1.21
+  - 1.3.6.1.2.1.2.2.1.22
+  - 1.3.6.1.2.1.2.2.1.3
+  - 1.3.6.1.2.1.2.2.1.5
+  - 1.3.6.1.2.1.2.2.1.6
+  - 1.3.6.1.2.1.2.2.1.7
+  - 1.3.6.1.2.1.2.2.1.8
+  - 1.3.6.1.2.1.25.2.3.1.1
+  - 1.3.6.1.2.1.25.2.3.1.2
+  - 1.3.6.1.2.1.25.2.3.1.3
+  - 1.3.6.1.2.1.25.2.3.1.4
+  - 1.3.6.1.2.1.25.2.3.1.5
+  - 1.3.6.1.2.1.25.2.3.1.6
+  - 1.3.6.1.2.1.25.3.2.1.1
+  - 1.3.6.1.2.1.25.3.2.1.2
+  - 1.3.6.1.2.1.25.3.2.1.3
+  - 1.3.6.1.2.1.25.3.2.1.4
+  - 1.3.6.1.2.1.25.3.3.1.1
+  - 1.3.6.1.2.1.25.3.4.1.1
+  - 1.3.6.1.2.1.4.20.1.1
+  - 1.3.6.1.2.1.4.20.1.2
+  - 1.3.6.1.2.1.4.20.1.3
+  - 1.3.6.1.2.1.4.20.1.4
+  - 1.3.6.1.2.1.4.22.1.1
+  - 1.3.6.1.2.1.4.22.1.2
+  - 1.3.6.1.2.1.4.22.1.3
+  - 1.3.6.1.2.1.4.22.1.4
+  - 1.3.6.1.2.1.6.13.1.1
+  - 1.3.6.1.2.1.6.13.1.2
+  - 1.3.6.1.2.1.6.13.1.3
+  - 1.3.6.1.2.1.6.13.1.4
+  - 1.3.6.1.2.1.6.13.1.5
+  - 1.3.6.1.2.1.7.5.1.1
+  - 1.3.6.1.2.1.7.5.1.2
+  get:
+  - 1.3.6.1.2.1.1.1.0
+  - 1.3.6.1.2.1.1.5.0
+  - 1.3.6.1.2.1.2.1.0
+  - 1.3.6.1.2.1.25.1.1.0
+  - 1.3.6.1.2.1.25.1.2.0
+  - 1.3.6.1.2.1.25.1.3.0
+  - 1.3.6.1.2.1.25.1.4.0
+  - 1.3.6.1.2.1.25.1.6.0
+  - 1.3.6.1.2.1.25.2.2.0
+  - 1.3.6.1.2.1.4.1.0
+  - 1.3.6.1.2.1.4.10.0
+  - 1.3.6.1.2.1.4.11.0
+  - 1.3.6.1.2.1.4.12.0
+  - 1.3.6.1.2.1.4.13.0
+  - 1.3.6.1.2.1.4.14.0
+  - 1.3.6.1.2.1.4.15.0
+  - 1.3.6.1.2.1.4.16.0
+  - 1.3.6.1.2.1.4.17.0
+  - 1.3.6.1.2.1.4.18.0
+  - 1.3.6.1.2.1.4.19.0
+  - 1.3.6.1.2.1.4.2.0
+  - 1.3.6.1.2.1.4.23.0
+  - 1.3.6.1.2.1.4.3.0
+  - 1.3.6.1.2.1.4.4.0
+  - 1.3.6.1.2.1.4.5.0
+  - 1.3.6.1.2.1.4.6.0
+  - 1.3.6.1.2.1.4.7.0
+  - 1.3.6.1.2.1.4.8.0
+  - 1.3.6.1.2.1.4.9.0
+  - 1.3.6.1.2.1.5.1.0
+  - 1.3.6.1.2.1.5.10.0
+  - 1.3.6.1.2.1.5.11.0
+  - 1.3.6.1.2.1.5.12.0
+  - 1.3.6.1.2.1.5.13.0
+  - 1.3.6.1.2.1.5.14.0
+  - 1.3.6.1.2.1.5.15.0
+  - 1.3.6.1.2.1.5.16.0
+  - 1.3.6.1.2.1.5.17.0
+  - 1.3.6.1.2.1.5.18.0
+  - 1.3.6.1.2.1.5.19.0
+  - 1.3.6.1.2.1.5.2.0
+  - 1.3.6.1.2.1.5.20.0
+  - 1.3.6.1.2.1.5.21.0
+  - 1.3.6.1.2.1.5.22.0
+  - 1.3.6.1.2.1.5.23.0
+  - 1.3.6.1.2.1.5.24.0
+  - 1.3.6.1.2.1.5.25.0
+  - 1.3.6.1.2.1.5.26.0
+  - 1.3.6.1.2.1.5.3.0
+  - 1.3.6.1.2.1.5.4.0
+  - 1.3.6.1.2.1.5.5.0
+  - 1.3.6.1.2.1.5.6.0
+  - 1.3.6.1.2.1.5.7.0
+  - 1.3.6.1.2.1.5.8.0
+  - 1.3.6.1.2.1.5.9.0
+  - 1.3.6.1.2.1.6.1.0
+  - 1.3.6.1.2.1.6.10.0
+  - 1.3.6.1.2.1.6.11.0
+  - 1.3.6.1.2.1.6.12.0
+  - 1.3.6.1.2.1.6.14.0
+  - 1.3.6.1.2.1.6.15.0
+  - 1.3.6.1.2.1.6.2.0
+  - 1.3.6.1.2.1.6.3.0
+  - 1.3.6.1.2.1.6.4.0
+  - 1.3.6.1.2.1.6.5.0
+  - 1.3.6.1.2.1.6.6.0
+  - 1.3.6.1.2.1.6.7.0
+  - 1.3.6.1.2.1.6.8.0
+  - 1.3.6.1.2.1.6.9.0
+  - 1.3.6.1.2.1.7.1.0
+  - 1.3.6.1.2.1.7.2.0
+  - 1.3.6.1.2.1.7.3.0
+  - 1.3.6.1.2.1.7.4.0
+  metrics:
+  - name: sysDescr
+    oid: 1.3.6.1.2.1.1.1
+    type: DisplayString
+    help: A textual description of the entity - 1.3.6.1.2.1.1.1
+  - name: sysName
+    oid: 1.3.6.1.2.1.1.5
+    type: DisplayString
+    help: An administratively-assigned name for this managed node - 1.3.6.1.2.1.1.5
+  - name: ifNumber
+    oid: 1.3.6.1.2.1.2.1
+    type: gauge
+    help: The number of network interfaces (regardless of their current state) present
+      on this system. - 1.3.6.1.2.1.2.1
+  - name: ifIndex
+    oid: 1.3.6.1.2.1.2.2.1.1
+    type: gauge
+    help: A unique value, greater than zero, for each interface - 1.3.6.1.2.1.2.2.1.1
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifInOctets
+    oid: 1.3.6.1.2.1.2.2.1.10
+    type: counter
+    help: The total number of octets received on the interface, including framing
+      characters - 1.3.6.1.2.1.2.2.1.10
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifInUcastPkts
+    oid: 1.3.6.1.2.1.2.2.1.11
+    type: counter
+    help: The number of packets, delivered by this sub-layer to a higher (sub-)layer,
+      which were not addressed to a multicast or broadcast address at this sub-layer
+      - 1.3.6.1.2.1.2.2.1.11
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifInErrors
+    oid: 1.3.6.1.2.1.2.2.1.14
+    type: counter
+    help: For packet-oriented interfaces, the number of inbound packets that contained
+      errors preventing them from being deliverable to a higher-layer protocol - 1.3.6.1.2.1.2.2.1.14
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifOutOctets
+    oid: 1.3.6.1.2.1.2.2.1.16
+    type: counter
+    help: The total number of octets transmitted out of the interface, including framing
+      characters - 1.3.6.1.2.1.2.2.1.16
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifOutUcastPkts
+    oid: 1.3.6.1.2.1.2.2.1.17
+    type: counter
+    help: The total number of packets that higher-level protocols requested be transmitted,
+      and which were not addressed to a multicast or broadcast address at this sub-layer,
+      including those that were discarded or not sent - 1.3.6.1.2.1.2.2.1.17
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifDescr
+    oid: 1.3.6.1.2.1.2.2.1.2
+    type: DisplayString
+    help: A textual string containing information about the interface - 1.3.6.1.2.1.2.2.1.2
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifOutErrors
+    oid: 1.3.6.1.2.1.2.2.1.20
+    type: counter
+    help: For packet-oriented interfaces, the number of outbound packets that could
+      not be transmitted because of errors - 1.3.6.1.2.1.2.2.1.20
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifOutQLen
+    oid: 1.3.6.1.2.1.2.2.1.21
+    type: gauge
+    help: The length of the output packet queue (in packets). - 1.3.6.1.2.1.2.2.1.21
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifType
+    oid: 1.3.6.1.2.1.2.2.1.3
+    type: gauge
+    help: The type of interface - 1.3.6.1.2.1.2.2.1.3
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifSpeed
+    oid: 1.3.6.1.2.1.2.2.1.5
+    type: gauge
+    help: An estimate of the interface's current bandwidth in bits per second - 1.3.6.1.2.1.2.2.1.5
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifPhysAddress
+    oid: 1.3.6.1.2.1.2.2.1.6
+    type: PhysAddress48
+    help: The interface's address at its protocol sub-layer - 1.3.6.1.2.1.2.2.1.6
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifAdminStatus
+    oid: 1.3.6.1.2.1.2.2.1.7
+    type: gauge
+    help: The desired state of the interface - 1.3.6.1.2.1.2.2.1.7
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: ifOperStatus
+    oid: 1.3.6.1.2.1.2.2.1.8
+    type: gauge
+    help: The current operational state of the interface - 1.3.6.1.2.1.2.2.1.8
+    indexes:
+    - labelname: ifIndex
+      type: gauge
+  - name: hrSystemUptime
+    oid: 1.3.6.1.2.1.25.1.1
+    type: gauge
+    help: The amount of time since this host was last initialized - 1.3.6.1.2.1.25.1.1
+  - name: hrSystemDate
+    oid: 1.3.6.1.2.1.25.1.2
+    type: DateAndTime
+    help: The host's notion of the local date and time of day. - 1.3.6.1.2.1.25.1.2
+  - name: hrSystemInitialLoadDevice
+    oid: 1.3.6.1.2.1.25.1.3
+    type: gauge
+    help: The index of the hrDeviceEntry for the device from which this host is configured
+      to load its initial operating system configuration (i.e., which operating system
+      code and/or boot parameters) - 1.3.6.1.2.1.25.1.3
+  - name: hrSystemInitialLoadParameters
+    oid: 1.3.6.1.2.1.25.1.4
+    type: OctetString
+    help: This object contains the parameters (e.g - 1.3.6.1.2.1.25.1.4
+  - name: hrSystemProcesses
+    oid: 1.3.6.1.2.1.25.1.6
+    type: gauge
+    help: The number of process contexts currently loaded or running on this system.
+      - 1.3.6.1.2.1.25.1.6
+  - name: hrMemorySize
+    oid: 1.3.6.1.2.1.25.2.2
+    type: gauge
+    help: The amount of physical read-write main memory, typically RAM, contained
+      by the host. - 1.3.6.1.2.1.25.2.2
+  - name: hrStorageIndex
+    oid: 1.3.6.1.2.1.25.2.3.1.1
+    type: gauge
+    help: A unique value for each logical storage area contained by the host. - 1.3.6.1.2.1.25.2.3.1.1
+    indexes:
+    - labelname: hrStorageIndex
+      type: gauge
+  - name: hrStorageDescr
+    oid: 1.3.6.1.2.1.25.2.3.1.3
+    type: DisplayString
+    help: A description of the type and instance of the storage described by this
+      entry. - 1.3.6.1.2.1.25.2.3.1.3
+    indexes:
+    - labelname: hrStorageIndex
+      type: gauge
+  - name: hrStorageAllocationUnits
+    oid: 1.3.6.1.2.1.25.2.3.1.4
+    type: gauge
+    help: The size, in bytes, of the data objects allocated from this pool - 1.3.6.1.2.1.25.2.3.1.4
+    indexes:
+    - labelname: hrStorageIndex
+      type: gauge
+  - name: hrStorageSize
+    oid: 1.3.6.1.2.1.25.2.3.1.5
+    type: gauge
+    help: The size of the storage represented by this entry, in units of hrStorageAllocationUnits
+      - 1.3.6.1.2.1.25.2.3.1.5
+    indexes:
+    - labelname: hrStorageIndex
+      type: gauge
+  - name: hrStorageUsed
+    oid: 1.3.6.1.2.1.25.2.3.1.6
+    type: gauge
+    help: The amount of the storage represented by this entry that is allocated, in
+      units of hrStorageAllocationUnits. - 1.3.6.1.2.1.25.2.3.1.6
+    indexes:
+    - labelname: hrStorageIndex
+      type: gauge
+  - name: hrDeviceIndex
+    oid: 1.3.6.1.2.1.25.3.2.1.1
+    type: gauge
+    help: A unique value for each device contained by the host - 1.3.6.1.2.1.25.3.2.1.1
+    indexes:
+    - labelname: hrDeviceIndex
+      type: gauge
+  - name: hrDeviceDescr
+    oid: 1.3.6.1.2.1.25.3.2.1.3
+    type: DisplayString
+    help: A textual description of this device, including the device's manufacturer
+      and revision, and optionally, its serial number. - 1.3.6.1.2.1.25.3.2.1.3
+    indexes:
+    - labelname: hrDeviceIndex
+      type: gauge
+  - name: hrNetworkIfIndex
+    oid: 1.3.6.1.2.1.25.3.4.1.1
+    type: gauge
+    help: The value of ifIndex which corresponds to this network device - 1.3.6.1.2.1.25.3.4.1.1
+    indexes:
+    - labelname: hrDeviceIndex
+      type: gauge
+  - name: ipForwarding
+    oid: 1.3.6.1.2.1.4.1
+    type: gauge
+    help: The indication of whether this entity is acting as an IP gateway in respect
+      to the forwarding of datagrams received by, but not addressed to, this entity
+      - 1.3.6.1.2.1.4.1
+  - name: ipOutRequests
+    oid: 1.3.6.1.2.1.4.10
+    type: counter
+    help: The total number of IP datagrams which local IP user-protocols (including
+      ICMP) supplied to IP in requests for transmission - 1.3.6.1.2.1.4.10
+  - name: ipOutDiscards
+    oid: 1.3.6.1.2.1.4.11
+    type: counter
+    help: The number of output IP datagrams for which no problem was encountered to
+      prevent their transmission to their destination, but which were discarded (e.g.,
+      for lack of buffer space) - 1.3.6.1.2.1.4.11
+  - name: ipOutNoRoutes
+    oid: 1.3.6.1.2.1.4.12
+    type: counter
+    help: The number of IP datagrams discarded because no route could be found to
+      transmit them to their destination - 1.3.6.1.2.1.4.12
+  - name: ipReasmTimeout
+    oid: 1.3.6.1.2.1.4.13
+    type: gauge
+    help: The maximum number of seconds which received fragments are held while they
+      are awaiting reassembly at this entity. - 1.3.6.1.2.1.4.13
+  - name: ipReasmReqds
+    oid: 1.3.6.1.2.1.4.14
+    type: counter
+    help: The number of IP fragments received which needed to be reassembled at this
+      entity. - 1.3.6.1.2.1.4.14
+  - name: ipReasmOKs
+    oid: 1.3.6.1.2.1.4.15
+    type: counter
+    help: The number of IP datagrams successfully re- assembled. - 1.3.6.1.2.1.4.15
+  - name: ipReasmFails
+    oid: 1.3.6.1.2.1.4.16
+    type: counter
+    help: 'The number of failures detected by the IP re- assembly algorithm (for whatever
+      reason: timed out, errors, etc) - 1.3.6.1.2.1.4.16'
+  - name: ipFragOKs
+    oid: 1.3.6.1.2.1.4.17
+    type: counter
+    help: The number of IP datagrams that have been successfully fragmented at this
+      entity. - 1.3.6.1.2.1.4.17
+  - name: ipFragFails
+    oid: 1.3.6.1.2.1.4.18
+    type: counter
+    help: The number of IP datagrams that have been discarded because they needed
+      to be fragmented at this entity but could not be, e.g., because their Don't
+      Fragment flag was set. - 1.3.6.1.2.1.4.18
+  - name: ipFragCreates
+    oid: 1.3.6.1.2.1.4.19
+    type: counter
+    help: The number of IP datagram fragments that have been generated as a result
+      of fragmentation at this entity. - 1.3.6.1.2.1.4.19
+  - name: ipDefaultTTL
+    oid: 1.3.6.1.2.1.4.2
+    type: gauge
+    help: The default value inserted into the Time-To-Live field of the IP header
+      of datagrams originated at this entity, whenever a TTL value is not supplied
+      by the transport layer protocol. - 1.3.6.1.2.1.4.2
+  - name: ipAdEntAddr
+    oid: 1.3.6.1.2.1.4.20.1.1
+    type: InetAddressIPv4
+    help: The IP address to which this entry's addressing information pertains. -
+      1.3.6.1.2.1.4.20.1.1
+    indexes:
+    - labelname: ipAdEntAddr
+      type: InetAddressIPv4
+  - name: ipAdEntIfIndex
+    oid: 1.3.6.1.2.1.4.20.1.2
+    type: gauge
+    help: The index value which uniquely identifies the interface to which this entry
+      is applicable - 1.3.6.1.2.1.4.20.1.2
+    indexes:
+    - labelname: ipAdEntAddr
+      type: InetAddressIPv4
+  - name: ipAdEntNetMask
+    oid: 1.3.6.1.2.1.4.20.1.3
+    type: InetAddressIPv4
+    help: The subnet mask associated with the IP address of this entry - 1.3.6.1.2.1.4.20.1.3
+    indexes:
+    - labelname: ipAdEntAddr
+      type: InetAddressIPv4
+  - name: ipAdEntBcastAddr
+    oid: 1.3.6.1.2.1.4.20.1.4
+    type: gauge
+    help: The value of the least-significant bit in the IP broadcast address used
+      for sending datagrams on the (logical) interface associated with the IP address
+      of this entry - 1.3.6.1.2.1.4.20.1.4
+    indexes:
+    - labelname: ipAdEntAddr
+      type: InetAddressIPv4
+  - name: ipNetToMediaIfIndex
+    oid: 1.3.6.1.2.1.4.22.1.1
+    type: gauge
+    help: The interface on which this entry's equivalence is effective - 1.3.6.1.2.1.4.22.1.1
+    indexes:
+    - labelname: ipNetToMediaIfIndex
+      type: gauge
+    - labelname: ipNetToMediaNetAddress
+      type: InetAddressIPv4
+  - name: ipNetToMediaPhysAddress
+    oid: 1.3.6.1.2.1.4.22.1.2
+    type: PhysAddress48
+    help: The media-dependent `physical' address. - 1.3.6.1.2.1.4.22.1.2
+    indexes:
+    - labelname: ipNetToMediaIfIndex
+      type: gauge
+    - labelname: ipNetToMediaNetAddress
+      type: InetAddressIPv4
+  - name: ipNetToMediaNetAddress
+    oid: 1.3.6.1.2.1.4.22.1.3
+    type: InetAddressIPv4
+    help: The IpAddress corresponding to the media- dependent `physical' address.
+      - 1.3.6.1.2.1.4.22.1.3
+    indexes:
+    - labelname: ipNetToMediaIfIndex
+      type: gauge
+    - labelname: ipNetToMediaNetAddress
+      type: InetAddressIPv4
+  - name: ipNetToMediaType
+    oid: 1.3.6.1.2.1.4.22.1.4
+    type: gauge
+    help: The type of mapping - 1.3.6.1.2.1.4.22.1.4
+    indexes:
+    - labelname: ipNetToMediaIfIndex
+      type: gauge
+    - labelname: ipNetToMediaNetAddress
+      type: InetAddressIPv4
+  - name: ipRoutingDiscards
+    oid: 1.3.6.1.2.1.4.23
+    type: counter
+    help: The number of routing entries which were chosen to be discarded even though
+      they are valid - 1.3.6.1.2.1.4.23
+  - name: ipInReceives
+    oid: 1.3.6.1.2.1.4.3
+    type: counter
+    help: The total number of input datagrams received from interfaces, including
+      those received in error. - 1.3.6.1.2.1.4.3
+  - name: ipInHdrErrors
+    oid: 1.3.6.1.2.1.4.4
+    type: counter
+    help: The number of input datagrams discarded due to errors in their IP headers,
+      including bad checksums, version number mismatch, other format errors, time-to-live
+      exceeded, errors discovered in processing their IP options, etc. - 1.3.6.1.2.1.4.4
+  - name: ipInAddrErrors
+    oid: 1.3.6.1.2.1.4.5
+    type: counter
+    help: The number of input datagrams discarded because the IP address in their
+      IP header's destination field was not a valid address to be received at this
+      entity - 1.3.6.1.2.1.4.5
+  - name: ipForwDatagrams
+    oid: 1.3.6.1.2.1.4.6
+    type: counter
+    help: The number of input datagrams for which this entity was not their final
+      IP destination, as a result of which an attempt was made to find a route to
+      forward them to that final destination - 1.3.6.1.2.1.4.6
+  - name: ipInUnknownProtos
+    oid: 1.3.6.1.2.1.4.7
+    type: counter
+    help: The number of locally-addressed datagrams received successfully but discarded
+      because of an unknown or unsupported protocol. - 1.3.6.1.2.1.4.7
+  - name: ipInDiscards
+    oid: 1.3.6.1.2.1.4.8
+    type: counter
+    help: The number of input IP datagrams for which no problems were encountered
+      to prevent their continued processing, but which were discarded (e.g., for lack
+      of buffer space) - 1.3.6.1.2.1.4.8
+  - name: ipInDelivers
+    oid: 1.3.6.1.2.1.4.9
+    type: counter
+    help: The total number of input datagrams successfully delivered to IP user-protocols
+      (including ICMP). - 1.3.6.1.2.1.4.9
+  - name: icmpInMsgs
+    oid: 1.3.6.1.2.1.5.1
+    type: counter
+    help: The total number of ICMP messages which the entity received - 1.3.6.1.2.1.5.1
+  - name: icmpInTimestamps
+    oid: 1.3.6.1.2.1.5.10
+    type: counter
+    help: The number of ICMP Timestamp (request) messages received. - 1.3.6.1.2.1.5.10
+  - name: icmpInTimestampReps
+    oid: 1.3.6.1.2.1.5.11
+    type: counter
+    help: The number of ICMP Timestamp Reply messages received. - 1.3.6.1.2.1.5.11
+  - name: icmpInAddrMasks
+    oid: 1.3.6.1.2.1.5.12
+    type: counter
+    help: The number of ICMP Address Mask Request messages received. - 1.3.6.1.2.1.5.12
+  - name: icmpInAddrMaskReps
+    oid: 1.3.6.1.2.1.5.13
+    type: counter
+    help: The number of ICMP Address Mask Reply messages received. - 1.3.6.1.2.1.5.13
+  - name: icmpOutMsgs
+    oid: 1.3.6.1.2.1.5.14
+    type: counter
+    help: The total number of ICMP messages which this entity attempted to send -
+      1.3.6.1.2.1.5.14
+  - name: icmpOutErrors
+    oid: 1.3.6.1.2.1.5.15
+    type: counter
+    help: The number of ICMP messages which this entity did not send due to problems
+      discovered within ICMP such as a lack of buffers - 1.3.6.1.2.1.5.15
+  - name: icmpOutDestUnreachs
+    oid: 1.3.6.1.2.1.5.16
+    type: counter
+    help: The number of ICMP Destination Unreachable messages sent. - 1.3.6.1.2.1.5.16
+  - name: icmpOutTimeExcds
+    oid: 1.3.6.1.2.1.5.17
+    type: counter
+    help: The number of ICMP Time Exceeded messages sent. - 1.3.6.1.2.1.5.17
+  - name: icmpOutParmProbs
+    oid: 1.3.6.1.2.1.5.18
+    type: counter
+    help: The number of ICMP Parameter Problem messages sent. - 1.3.6.1.2.1.5.18
+  - name: icmpOutSrcQuenchs
+    oid: 1.3.6.1.2.1.5.19
+    type: counter
+    help: The number of ICMP Source Quench messages sent. - 1.3.6.1.2.1.5.19
+  - name: icmpInErrors
+    oid: 1.3.6.1.2.1.5.2
+    type: counter
+    help: The number of ICMP messages which the entity received but determined as
+      having ICMP-specific errors (bad ICMP checksums, bad length, etc.). - 1.3.6.1.2.1.5.2
+  - name: icmpOutRedirects
+    oid: 1.3.6.1.2.1.5.20
+    type: counter
+    help: The number of ICMP Redirect messages sent - 1.3.6.1.2.1.5.20
+  - name: icmpOutEchos
+    oid: 1.3.6.1.2.1.5.21
+    type: counter
+    help: The number of ICMP Echo (request) messages sent. - 1.3.6.1.2.1.5.21
+  - name: icmpOutEchoReps
+    oid: 1.3.6.1.2.1.5.22
+    type: counter
+    help: The number of ICMP Echo Reply messages sent. - 1.3.6.1.2.1.5.22
+  - name: icmpOutTimestamps
+    oid: 1.3.6.1.2.1.5.23
+    type: counter
+    help: The number of ICMP Timestamp (request) messages sent. - 1.3.6.1.2.1.5.23
+  - name: icmpOutTimestampReps
+    oid: 1.3.6.1.2.1.5.24
+    type: counter
+    help: The number of ICMP Timestamp Reply messages sent. - 1.3.6.1.2.1.5.24
+  - name: icmpOutAddrMasks
+    oid: 1.3.6.1.2.1.5.25
+    type: counter
+    help: The number of ICMP Address Mask Request messages sent. - 1.3.6.1.2.1.5.25
+  - name: icmpOutAddrMaskReps
+    oid: 1.3.6.1.2.1.5.26
+    type: counter
+    help: The number of ICMP Address Mask Reply messages sent. - 1.3.6.1.2.1.5.26
+  - name: icmpInDestUnreachs
+    oid: 1.3.6.1.2.1.5.3
+    type: counter
+    help: The number of ICMP Destination Unreachable messages received. - 1.3.6.1.2.1.5.3
+  - name: icmpInTimeExcds
+    oid: 1.3.6.1.2.1.5.4
+    type: counter
+    help: The number of ICMP Time Exceeded messages received. - 1.3.6.1.2.1.5.4
+  - name: icmpInParmProbs
+    oid: 1.3.6.1.2.1.5.5
+    type: counter
+    help: The number of ICMP Parameter Problem messages received. - 1.3.6.1.2.1.5.5
+  - name: icmpInSrcQuenchs
+    oid: 1.3.6.1.2.1.5.6
+    type: counter
+    help: The number of ICMP Source Quench messages received. - 1.3.6.1.2.1.5.6
+  - name: icmpInRedirects
+    oid: 1.3.6.1.2.1.5.7
+    type: counter
+    help: The number of ICMP Redirect messages received. - 1.3.6.1.2.1.5.7
+  - name: icmpInEchos
+    oid: 1.3.6.1.2.1.5.8
+    type: counter
+    help: The number of ICMP Echo (request) messages received. - 1.3.6.1.2.1.5.8
+  - name: icmpInEchoReps
+    oid: 1.3.6.1.2.1.5.9
+    type: counter
+    help: The number of ICMP Echo Reply messages received. - 1.3.6.1.2.1.5.9
+  - name: tcpRtoAlgorithm
+    oid: 1.3.6.1.2.1.6.1
+    type: gauge
+    help: The algorithm used to determine the timeout value used for retransmitting
+      unacknowledged octets. - 1.3.6.1.2.1.6.1
+  - name: tcpInSegs
+    oid: 1.3.6.1.2.1.6.10
+    type: counter
+    help: The total number of segments received, including those received in error
+      - 1.3.6.1.2.1.6.10
+  - name: tcpOutSegs
+    oid: 1.3.6.1.2.1.6.11
+    type: counter
+    help: The total number of segments sent, including those on current connections
+      but excluding those containing only retransmitted octets. - 1.3.6.1.2.1.6.11
+  - name: tcpRetransSegs
+    oid: 1.3.6.1.2.1.6.12
+    type: counter
+    help: The total number of segments retransmitted - that is, the number of TCP
+      segments transmitted containing one or more previously transmitted octets. -
+      1.3.6.1.2.1.6.12
+  - name: tcpConnState
+    oid: 1.3.6.1.2.1.6.13.1.1
+    type: gauge
+    help: The state of this TCP connection - 1.3.6.1.2.1.6.13.1.1
+    indexes:
+    - labelname: tcpConnLocalAddress
+      type: InetAddressIPv4
+    - labelname: tcpConnLocalPort
+      type: gauge
+    - labelname: tcpConnRemAddress
+      type: InetAddressIPv4
+    - labelname: tcpConnRemPort
+      type: gauge
+  - name: tcpConnLocalAddress
+    oid: 1.3.6.1.2.1.6.13.1.2
+    type: InetAddressIPv4
+    help: The local IP address for this TCP connection - 1.3.6.1.2.1.6.13.1.2
+    indexes:
+    - labelname: tcpConnLocalAddress
+      type: InetAddressIPv4
+    - labelname: tcpConnLocalPort
+      type: gauge
+    - labelname: tcpConnRemAddress
+      type: InetAddressIPv4
+    - labelname: tcpConnRemPort
+      type: gauge
+  - name: tcpConnLocalPort
+    oid: 1.3.6.1.2.1.6.13.1.3
+    type: gauge
+    help: The local port number for this TCP connection. - 1.3.6.1.2.1.6.13.1.3
+    indexes:
+    - labelname: tcpConnLocalAddress
+      type: InetAddressIPv4
+    - labelname: tcpConnLocalPort
+      type: gauge
+    - labelname: tcpConnRemAddress
+      type: InetAddressIPv4
+    - labelname: tcpConnRemPort
+      type: gauge
+  - name: tcpConnRemAddress
+    oid: 1.3.6.1.2.1.6.13.1.4
+    type: InetAddressIPv4
+    help: The remote IP address for this TCP connection. - 1.3.6.1.2.1.6.13.1.4
+    indexes:
+    - labelname: tcpConnLocalAddress
+      type: InetAddressIPv4
+    - labelname: tcpConnLocalPort
+      type: gauge
+    - labelname: tcpConnRemAddress
+      type: InetAddressIPv4
+    - labelname: tcpConnRemPort
+      type: gauge
+  - name: tcpConnRemPort
+    oid: 1.3.6.1.2.1.6.13.1.5
+    type: gauge
+    help: The remote port number for this TCP connection. - 1.3.6.1.2.1.6.13.1.5
+    indexes:
+    - labelname: tcpConnLocalAddress
+      type: InetAddressIPv4
+    - labelname: tcpConnLocalPort
+      type: gauge
+    - labelname: tcpConnRemAddress
+      type: InetAddressIPv4
+    - labelname: tcpConnRemPort
+      type: gauge
+  - name: tcpInErrs
+    oid: 1.3.6.1.2.1.6.14
+    type: counter
+    help: The total number of segments received in error (e.g., bad TCP checksums).
+      - 1.3.6.1.2.1.6.14
+  - name: tcpOutRsts
+    oid: 1.3.6.1.2.1.6.15
+    type: counter
+    help: The number of TCP segments sent containing the RST flag. - 1.3.6.1.2.1.6.15
+  - name: tcpRtoMin
+    oid: 1.3.6.1.2.1.6.2
+    type: gauge
+    help: The minimum value permitted by a TCP implementation for the retransmission
+      timeout, measured in milliseconds - 1.3.6.1.2.1.6.2
+  - name: tcpRtoMax
+    oid: 1.3.6.1.2.1.6.3
+    type: gauge
+    help: The maximum value permitted by a TCP implementation for the retransmission
+      timeout, measured in milliseconds - 1.3.6.1.2.1.6.3
+  - name: tcpMaxConn
+    oid: 1.3.6.1.2.1.6.4
+    type: gauge
+    help: The limit on the total number of TCP connections the entity can support
+      - 1.3.6.1.2.1.6.4
+  - name: tcpActiveOpens
+    oid: 1.3.6.1.2.1.6.5
+    type: counter
+    help: The number of times TCP connections have made a direct transition to the
+      SYN-SENT state from the CLOSED state. - 1.3.6.1.2.1.6.5
+  - name: tcpPassiveOpens
+    oid: 1.3.6.1.2.1.6.6
+    type: counter
+    help: The number of times TCP connections have made a direct transition to the
+      SYN-RCVD state from the LISTEN state. - 1.3.6.1.2.1.6.6
+  - name: tcpAttemptFails
+    oid: 1.3.6.1.2.1.6.7
+    type: counter
+    help: The number of times TCP connections have made a direct transition to the
+      CLOSED state from either the SYN-SENT state or the SYN-RCVD state, plus the
+      number of times TCP connections have made a direct transition to the LISTEN
+      state from the SYN-RCVD state. - 1.3.6.1.2.1.6.7
+  - name: tcpEstabResets
+    oid: 1.3.6.1.2.1.6.8
+    type: counter
+    help: The number of times TCP connections have made a direct transition to the
+      CLOSED state from either the ESTABLISHED state or the CLOSE-WAIT state. - 1.3.6.1.2.1.6.8
+  - name: tcpCurrEstab
+    oid: 1.3.6.1.2.1.6.9
+    type: gauge
+    help: The number of TCP connections for which the current state is either ESTABLISHED
+      or CLOSE- WAIT. - 1.3.6.1.2.1.6.9
+  - name: udpInDatagrams
+    oid: 1.3.6.1.2.1.7.1
+    type: counter
+    help: The total number of UDP datagrams delivered to UDP users. - 1.3.6.1.2.1.7.1
+  - name: udpNoPorts
+    oid: 1.3.6.1.2.1.7.2
+    type: counter
+    help: The total number of received UDP datagrams for which there was no application
+      at the destination port. - 1.3.6.1.2.1.7.2
+  - name: udpInErrors
+    oid: 1.3.6.1.2.1.7.3
+    type: counter
+    help: The number of received UDP datagrams that could not be delivered for reasons
+      other than the lack of an application at the destination port. - 1.3.6.1.2.1.7.3
+  - name: udpOutDatagrams
+    oid: 1.3.6.1.2.1.7.4
+    type: counter
+    help: The total number of UDP datagrams sent from this entity. - 1.3.6.1.2.1.7.4
+  - name: udpLocalAddress
+    oid: 1.3.6.1.2.1.7.5.1.1
+    type: InetAddressIPv4
+    help: The local IP address for this UDP listener - 1.3.6.1.2.1.7.5.1.1
+    indexes:
+    - labelname: udpLocalAddress
+      type: InetAddressIPv4
+    - labelname: udpLocalPort
+      type: gauge
+  - name: udpLocalPort
+    oid: 1.3.6.1.2.1.7.5.1.2
+    type: gauge
+    help: The local port number for this UDP listener. - 1.3.6.1.2.1.7.5.1.2
+    indexes:
+    - labelname: udpLocalAddress
+      type: InetAddressIPv4
+    - labelname: udpLocalPort
+      type: gauge
+  version: 2
+  max_repetitions: 60
+  retries: 3
+  timeout: 10s
+  auth:
+    community: rocommunity

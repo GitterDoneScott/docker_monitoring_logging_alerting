@@ -131,6 +131,21 @@ services:
         gelf-address: udp://172.16.0.38:12201
         labels: container_group
 
+  snmpexporter:
+    image: prom/snmp-exporter
+    volumes:
+      - ./snmpexporter:/etc/snmp_exporter/
+    ports:
+      - 9116:9116
+    restart: always
+    labels:
+      container_group: monitoring
+#    logging:
+#      driver: gelf
+#      options:
+#        gelf-address: udp://172.16.0.38:12201
+#        labels: container_group
+
 #########################################################
 ####                   Networking                    ####
 #########################################################
