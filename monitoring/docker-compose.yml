@@ -118,6 +118,8 @@ services:
 #########################################################
   blackboxprober:
     image: prom/blackbox-exporter:v0.10.0
+    cap_add:
+      - NET_RAW
     volumes:
       - ./blackboxprober:/etc/blackbox_exporter
     ports:

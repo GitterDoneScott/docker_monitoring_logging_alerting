@@ -66,8 +66,8 @@ scrape_configs:
     metrics_path: /probe
     # if your target is https, you either need to install cert in blackbox proble container
     # or add below line to ignore verify
-    # tls_config:
-    #  insecure_skip_verify: true
+    tls_config:
+      insecure_skip_verify: true
     params:
       module: [http_2xx]  # Look for a HTTP 200 response. 
     file_sd_configs:
@@ -75,37 +75,26 @@ scrape_configs:
         - /etc/prometheus/service.yml
     relabel_configs:
       - source_labels: [__address__]
-        regex: (.*)
         target_label: __param_target
-        replacement: ${1}
-      - source_labels: [__address__]
-        regex: (.*)
-        target_label: service_url
-        replacement: ${1}
-      - source_labels: []
-        regex: .*
-        target_label: __address__
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
         replacement: blackboxprober:9115
 
-  # - job_name: 'couchdb'
-  #   scrape_interval: 10s
-  #   scrape_timeout: 5s
-  #   static_configs:
-  #     - targets: ['couchdbstats:9984']
-  #       labels: {'host': 'host1'}
-  # Will/23.08.16: switched of, as I am not sure at this point where the new /_stats endpoint for couchdb 2.0 is. this image is still checking at /_stats and will thus throw non-stop MONITORING SERVICE DOWN alerts. See corresponding entry in monitoring docker-compose.yml.
+  - job_name: 'host'
+    scrape_interval: 60s
+    scrape_timeout: 15s
+    metrics_path: /probe
+    params:
+      module: [icmp_ipv4]
+    file_sd_configs:
+      - files:
+        - /etc/prometheus/hosts.yml
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackboxprober:9115
 
-
-
-  # - job_name: 'prometheus'
-
-  #   # Override the global default and scrape targets from this job every 5 seconds.
-  #   scrape_interval: 10s
-  #   scrape_timeout: 5s
-
-  #   # metrics_path defaults to '/metrics'
-  #   # scheme defaults to 'http'.
-
-  #   target_groups:
-  #     - targets: ['localhost:9090']
-  #       labels: {'host': 'prometheus'}
