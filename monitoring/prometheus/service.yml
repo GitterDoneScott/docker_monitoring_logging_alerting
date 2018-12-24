@@ -1,9 +1,0 @@
-- targets: ['http://www.cai-chicago.com']
-  labels:
-    service_name: 'cai-chicago.com'
-- targets: ['https://www.makingoodtime.com']
-  labels:
-    service_name: 'makingoodtime.com'
-- targets: ['http://plex.p.pharegrp.com']
-  labels:
-    service_name: 'Parents Plex'
