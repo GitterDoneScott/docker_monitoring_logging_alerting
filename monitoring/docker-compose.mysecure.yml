@@ -37,17 +37,19 @@ services:
       file: docker-compose.yml
       service: snmpexporter
 
-
   grafana:
     extends:
       file: docker-compose.yml
       service: grafana
+    volumes:
+      - grafana_config:/etc/grafana
+      - grafana_storage:/var/lib/grafana
     networks:
       - default
       - reverse-proxy
     environment:
-      - VIRTUAL_HOST=grafana.${DNS_SUFFIX:-local}
-      - LETSENCRYPT_HOST=grafana.${DNS_SUFFIX:-local}
+      - VIRTUAL_HOST=dashboard.${DNS_SUFFIX:-local}
+      - LETSENCRYPT_HOST=dashboard.${DNS_SUFFIX:-local}
       - LETSENCRYPT_EMAIL=${LETS_ENC_EMAIL:-SUBFAIL}
 #      - GF_SECURITY_ADMIN_PASSWORD=${PASSWORD}
 
@@ -63,6 +65,11 @@ services:
       - LETSENCRYPT_HOST=alertmanager.${DNS_SUFFIX:-local}
       - LETSENCRYPT_EMAIL=${LETS_ENC_EMAIL:-SUBFAIL}
 
+  alertmanager-discord:
+    extends: 
+      file: docker-compose.yml
+      service: alertmanager-discord
+   
 networks:
   default:
     external:
@@ -76,5 +83,19 @@ volumes:
     driver: "local"
     driver_opts:
       device: "${VOL_DEVICE_PREFIX_SSD:-SUBFAIL}/containers/prometheus/storage"
+      type: ${VOL_TYPE:-SUBFAIL}
+      o: ${VOL_OPS:-SUBFAIL}
+
+  grafana_storage:
+    driver: "local"
+    driver_opts:
+      device: "${VOL_DEVICE_PREFIX_SSD:-SUBFAIL}/containers/grafana/storage"
+      type: ${VOL_TYPE:-SUBFAIL}
+      o: ${VOL_OPS:-SUBFAIL}
+
+  grafana_config:
+    driver: "local"
+    driver_opts:
+      device: "${VOL_DEVICE_PREFIX_SSD:-SUBFAIL}/containers/grafana/config"
       type: ${VOL_TYPE:-SUBFAIL}
       o: ${VOL_OPS:-SUBFAIL}

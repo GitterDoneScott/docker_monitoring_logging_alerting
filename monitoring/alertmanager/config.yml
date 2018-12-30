@@ -1,5 +1,4 @@
-# Uncomment slack and insert your webhook url in order to get notifications on your slack.
-
+# test using amtool: docker run -it --entrypoint=sh prom/alertmanager:latest
 route:
   receiver: 'logstash'
   repeat_interval: 3h #3h
@@ -8,23 +7,15 @@ route:
   routes:
   - receiver: 'logstash'
     continue: true
-  # - receiver: 'slack'
-
-
-
+  - receiver: 'discord'
 
 receivers:
-    # - name: 'slack'
-    #   slack_configs:
-    #     - send_resolved: true
-    #       username: 'Prometheus - Alerts'
-    #       channel: '#channel'
-    #       api_url: # Put your slack webhook_url here.
-    #       text: '{{ .CommonAnnotations.summary }}   --->   {{ .CommonAnnotations.description }}'
-    - name: 'logstash'
-      webhook_configs:
-        # Whether or not to notify about resolved alerts.
-        - send_resolved: true
-          # The endpoint to send HTTP POST requests to.
-          url: "http://logstash:8080/"
-
+- name: 'discord'
+  webhook_configs:
+  - url: 'http://alertmanager-discord:9094'
+- name: 'logstash'
+  webhook_configs:
+  # Whether or not to notify about resolved alerts.
+  - send_resolved: true
+    url: "http://logstash:8080/"
+  

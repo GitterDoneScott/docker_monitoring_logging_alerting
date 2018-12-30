@@ -31,8 +31,7 @@ ALERT container_eating_memory
       description = "{{ $labels.name }} is eating up a LOT of memory. Memory consumption of {{ $labels.name }} is at {{ humanize $value}}.",
   }
 
-
-ALERT container_down
+ALERT container_down_monlog
 IF (absent(container_memory_usage_bytes{name="logging_elasticsearch_1"})
   or absent(container_memory_usage_bytes{name="monitoring_prometheus_1"}) 
   )
@@ -43,3 +42,13 @@ IF (absent(container_memory_usage_bytes{name="logging_elasticsearch_1"})
     description =  "container with  name '{{ $labels.name }}' is down for more than 5 minutes"
   }
 
+ALERT container_down
+IF absent(((time() - container_last_seen{name=~".*"}) < 5))
+  FOR 5m
+  LABELS { severity = "Critical" }
+  ANNOTATIONS {
+    summary= "CONTAINER '{{ $labels.name }}' down",
+    description =  "container with  name '{{ $labels.name }}' is down for more than 5 minutes"
+  }
+
+  
