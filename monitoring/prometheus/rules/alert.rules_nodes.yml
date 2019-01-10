@@ -1,0 +1,54 @@
+groups:
+- name: alert.rules_nodes
+  rules:
+  - alert: monitoring_service_down
+    expr: up == 0
+    for: 5m
+    annotations:
+      description: The monitoring service '{{ $labels.job }}' is down.
+      summary: 'MONITORING SERVICE DOWN WARNING: NODE ''{{ $labels.host }}'''
+  - alert: high_load_on_node
+    expr: (100 - (avg by(instance) (irate(node_cpu_seconds_total{mode="idle"}[5m]))
+      * 100)) > 75
+    for: 2m
+    labels:
+      severity: Warning
+    annotations:
+      DESCRIPTION: '{{$labels.instance}}: CPU usage is above 75% (current value is:
+        {{ $value }})'
+      SUMMARY: '{{$labels.instance}}: High CPU usage detected'
+  - alert: node_filesystem_low_diskspace
+    expr: ((node_filesystem_avail_bytes{mountpoint!~"^/etc.*"} * 100) / node_filesystem_size_bytes)
+      < 20
+    for: 5m
+    labels:
+      severity: High
+    annotations:
+      DESCRIPTION: Node {{ $labels.instance }}'s filesystem {{ $labels.filesystem
+        }} has less than 20% disk space remaining.
+      SUMMARY: Node filesystem usage is high
+  - alert: node_filesystem_low_diskspace_predict
+    expr: predict_linear(node_filesystem_avail_bytes{mountpoint!~"^/etc.*"}[1h], 24
+      * 3600) < 0
+    for: 10m
+    labels:
+      severity: Critical
+    annotations:
+      DESCRIPTION: Node {{ $labels.instance }}'s filesystem {{ $labels.filesystem
+        }} predicted to fill in 24 hours.
+      SUMMARY: Node filesystem predicted to fill to capacity in 24 hours
+  - alert: node_restarted
+    expr: node_time - node_boot_time < 300
+    for: 1m
+    labels:
+      severity: Warning
+    annotations:
+      description: 'Warning: Node ''{{ $labels.host }}'' was restarted at {{ $value
+        }} seconds ago.'
+      summary: 'NODE RESTARTED WARNING: NODE ''{{ $labels.host }}'''
+  - alert: NodeRebootsTooOften
+    expr: changes(node_boot_time{job="node"}[1d]) > 1
+    annotations:
+      DESCRIPTION: Node {{ $labels.instance }} reboots too often ({{ $value }} is
+        more than 1 times per 1d)
+      SUMMARY: Node reboots too often

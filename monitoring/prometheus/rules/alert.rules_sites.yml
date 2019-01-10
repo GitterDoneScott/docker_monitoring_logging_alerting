@@ -1,0 +1,12 @@
+groups:
+- name: alert.rules_sites
+  rules:
+  - alert: service_endpoint_down
+    expr: probe_success{job="service"} == 0
+    for: 3m
+    labels:
+      severity: Critical
+    annotations:
+      description: Service {{ $labels.service_name }} with endpoint {{ $labels.service_url
+        }} is not reachable. Please check whether the instance is running
+      summary: 'SERVICE DOWN: {{ $labels.service_name }}'

@@ -2,7 +2,7 @@
 sudo chown root:root logging/filebeat/filebeat.yml
 
 export ELK_TAG="6.3.0"
-
+#export ELK_TAG="6.5.0"
 
     echo "------------------------------------------------------------"
     echo "############################### Creating separate docker network..."

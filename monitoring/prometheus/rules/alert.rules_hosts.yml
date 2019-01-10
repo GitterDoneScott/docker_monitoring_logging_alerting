@@ -1,0 +1,19 @@
+groups:
+- name: alert.rules_hosts
+  rules:
+  - alert: host_down
+    expr: probe_success{detection_type!="UP",job="host"} == 0
+    for: 5m
+    labels:
+      severity: Info
+    annotations:
+      description: Host {{ $labels.instance }} is down.
+      summary: 'HOST DOWN: {{ $labels.instance }}'
+  - alert: host_up
+    expr: probe_success{detection_type="UP",job="host"} == 1
+    for: 5m
+    labels:
+      severity: Info
+    annotations:
+      description: Host {{ $labels.instance }} is up.
+      summary: 'HOST UP: {{ $labels.instance }}'

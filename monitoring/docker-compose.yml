@@ -9,7 +9,7 @@ services:
 
   # Runs on your node(s) and forwards node(host) metrics to Prometheus.
   master-nodeexporter:
-    image: prom/node-exporter:v0.14.0
+    image: prom/node-exporter:v0.17.0
     expose:
       - 9100
     restart: always
@@ -25,7 +25,7 @@ services:
 
   # Runs on your node(s) and forwards container metrics to Prometheus.
   master-cadvisor:
-    image: google/cadvisor:v0.25.0
+    image: google/cadvisor:v0.32.0   #v0.25.0
     expose:
       - 8080
     volumes:
@@ -46,25 +46,18 @@ services:
 
   # Storage and search backend. Gets all metrics from cAdvisor and Nodeexporter and is the backend that Grafana runs on.
   prometheus:
-    image: prom/prometheus:v1.7.1
+    image: prom/prometheus:v2.6.0   #v1.7.1
     expose:
       - 9090
     volumes:
-      - ../storage/prometheus:/prometheus
-      #Will/23.08.16: dcom restart prometheus suffices to load config/rule changes
-      #Qyao/07.10.17: curl -X POST http://localhost:9090/-/reload to reload config
-      # it will be safe to mount ./prometheus folder in recent prometheus image  
+      - ../storage/prometheus:/data
       - ./prometheus:/etc/prometheus
     restart: always
     command:
-      - "-config.file=/etc/prometheus/prometheus.yml"
-      - "-storage.local.path=/prometheus"
-      - "-web.console.libraries=/etc/prometheus/console_libraries"
-      - "-web.console.templates=/etc/prometheus/consoles"
-      - "-web.listen-address=:9090"
-      - "-alertmanager.url=http://alertmanager:9093"
-      - "-storage.local.memory-chunks=300000"
-      - "-storage.local.retention=744h"
+      - "--config.file=/etc/prometheus/prometheus.yml"
+      - "--storage.tsdb.path=/data"
+      - "--web.listen-address=:9090"
+      - "--storage.tsdb.retention=90d"
     labels:
       container_group: monitoring
     logging:
@@ -77,7 +70,7 @@ services:
 
   # Pretty frontend to explore and check out all your metrics.
   grafana:
-    image: grafana/grafana:5.2.2
+    image: grafana/grafana:5.4.2   #5.2.2
     expose:
       - 3000
 #    volumes:
@@ -118,7 +111,7 @@ services:
 
 #########################################################
   blackboxprober:
-    image: prom/blackbox-exporter:v0.10.0
+    image: prom/blackbox-exporter:v0.13.0   #v0.10.0
     cap_add:
       - NET_RAW
     volumes:
@@ -135,7 +128,7 @@ services:
         labels: container_group
 
   snmpexporter:
-    image: prom/snmp-exporter
+    image: prom/snmp-exporter:v0.14.0
     volumes:
       - ./snmpexporter:/etc/snmp_exporter/
     ports:

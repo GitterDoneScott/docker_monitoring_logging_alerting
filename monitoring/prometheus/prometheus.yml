@@ -13,6 +13,12 @@ global:
 rule_files:
   - "rules/alert.*"
 
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - alertmanager:9093
+
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
 scrape_configs:
@@ -29,9 +35,10 @@ scrape_configs:
   - job_name: 'containers'
     scrape_interval: 10s
     scrape_timeout: 5s
+    # autodiscover using dns cadvisor
     static_configs:
       - targets: ['master-cadvisor:8080']
-        labels: {'host': 'host1'}
+#        labels: {'host': 'host1'}
 
   #Will/23.08.16: dcom restart prometheus suffices to load config/rule changes
 
@@ -40,12 +47,15 @@ scrape_configs:
     scrape_timeout: 5s
     static_configs:
       - targets: ['localhost:9090']
-        labels: {'host': 'host1'}
+#        labels: {'host': 'host1'}
 
   - job_name: 'snmp'
-    static_configs:
-      - targets:
-        - 192.168.0.254  # SNMP device.
+#    static_configs:
+#      - targets:
+#        - 192.168.0.254  # SNMP device.
+    file_sd_configs:
+      - files:
+        - /etc/prometheus/snmp.yml
     metrics_path: /snmp
     params:
       module: [router]
@@ -55,7 +65,7 @@ scrape_configs:
       - source_labels: [__param_target]
         target_label: instance
       - target_label: __address__
-        replacement: 192.168.0.11:9116  # The SNMP exporter's real hostname:port.
+        replacement: snmpexporter:9116  # The SNMP exporter's real hostname:port.
   # see https://github.com/prometheus/blackbox_exporter relabel 
   - job_name: 'service'
     scrape_interval: 60s

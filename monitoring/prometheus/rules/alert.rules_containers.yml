@@ -1,0 +1,39 @@
+groups:
+- name: alert.rules_containers
+  rules:
+  - alert: high_cpu_usage_on_container
+    expr: sum by(name, host) (rate(container_cpu_usage_seconds_total{name=~".+"}[5m]))
+      * 100 > 100
+    for: 5m
+    annotations:
+      description: '{{ $labels.name }} is using a LOT of CPU. CPU usage is {{ humanize
+        $value}}%.'
+      summary: 'HIGH CPU USAGE WARNING: CONTAINER ''{{ $labels.name }}'' on ''{{ $labels.host
+        }}'''
+  - alert: container_eating_memory
+    expr: sum by(host, name) (container_memory_usage_bytes{name=~".+"}) > 1e+09
+    for: 5m
+    annotations:
+      description: '{{ $labels.name }} is eating up a LOT of memory. Memory consumption
+        of {{ $labels.name }} is at {{ humanize $value}}.'
+      summary: 'HIGH MEMORY USAGE WARNING: CONTAINER ''{{ $labels.name }}'' on ''{{
+        $labels.host }}'''
+  - alert: container_down_monlog
+    expr: (absent(container_memory_usage_bytes{name="logging_elasticsearch_1"}) or
+      absent(container_memory_usage_bytes{name="monitoring_prometheus_1"}))
+    for: 5m
+    labels:
+      severity: Critical
+    annotations:
+      description: container with  name '{{ $labels.name }}' is down for more than
+        5 minutes
+      summary: CONTAINER '{{ $labels.name }}' down
+  - alert: container_down
+    expr: absent(((time() - container_last_seen{name=~".*"}) < 5))
+    for: 5m
+    labels:
+      severity: Critical
+    annotations:
+      description: container with  name '{{ $labels.name }}' is down for more than
+        5 minutes
+      summary: CONTAINER '{{ $labels.name }}' down
