@@ -12,20 +12,20 @@ export ELK_TAG="6.3.0"
     echo "------------------------------------------------------------"
     echo "############################### Pulling images..."
     echo "------------------------------------------------------------"
-    /opt/bin/docker-compose -f monitoring/docker-compose.mysecure.yml pull
-    /opt/bin/docker-compose -f logging/docker-compose.mysecure.yml pull
+    docker-compose -f monitoring/docker-compose.mysecure.yml pull
+    docker-compose -f logging/docker-compose.mysecure.yml pull
 
     echo "------------------------------------------------------------"
     echo "############################### Building images..."
     echo "------------------------------------------------------------"
-    /opt/bin/docker-compose -f monitoring/docker-compose.mysecure.yml build
-    /opt/bin/docker-compose -f logging/docker-compose.mysecure.yml build
+    docker-compose -f monitoring/docker-compose.mysecure.yml build
+    docker-compose -f logging/docker-compose.mysecure.yml build
 
     echo "------------------------------------------------------------"
     echo "############################### Starting monitoring and logging container groups..."
     echo "------------------------------------------------------------"
-    /opt/bin/docker-compose -f monitoring/docker-compose.mysecure.yml up --force-recreate -d
-    /opt/bin/docker-compose -f logging/docker-compose.mysecure.yml up --force-recreate -d
+    docker-compose -f monitoring/docker-compose.mysecure.yml up --force-recreate -d
+    docker-compose -f logging/docker-compose.mysecure.yml up --force-recreate -d
 
     echo "------------------------------------------------------------"
     echo "############################### Output from 'docker ps'..."
