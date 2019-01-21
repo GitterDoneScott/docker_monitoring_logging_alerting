@@ -122,14 +122,15 @@ services:
   # Tool to run queries against your Elasticsearch and when alert when finding certain logs.
   elastalert:
 #    build: elastalert/
-    image: jertel/elastalert-docker:0.1.33
+    image: bitsensor/elastalert:1.0.0 
     restart: always
+    ports:
+      - "3030:3030"
     volumes:
-      - ./elastalert/log:/opt/log
-      - ./elastalert/config:/opt/config
-      - ./elastalert/rules:/opt/rules
-    environment:
-      - ELASTICSEARCH_HOST=elasticsearch
+      - ./elastalert/config/elastalert.yaml:/opt/elastalert/config.yaml
+      - ./elastalert/config/config.json:/opt/elastalert-server/config/config.json
+      - ./elastalert/rules:/opt/elastalert/rules
+      - ./elastalert/rule_templates:/opt/elastalert/rule_templates
     labels:
       container_group: monitoring
     logging:
