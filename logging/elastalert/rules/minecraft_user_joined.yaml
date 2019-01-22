@@ -1,0 +1,27 @@
+# Alert when minecraft user logs in
+
+# (Required)
+# Rule name, must be unique
+name: Minecraft user joined
+
+# (Required)
+# Type of alert.
+type: any
+
+# (Required)
+# Index to search, wildcard supported
+index: logstash-*
+
+# (Required)
+# A list of Elasticsearch filters used for find events
+# These filters are joined with AND and nested in a filtered query
+# For more info: http://www.elasticsearch.org/guide/en/elasticsearch/reference/current/query-dsl.html
+filter:
+- query:
+    query_string:
+      query: "\"joined the game\" AND container_name=minecraft"
+
+# (Required)
+# The alert is use when a match is found
+alert:
+- "slack"
