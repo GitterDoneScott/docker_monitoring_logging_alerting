@@ -49,5 +49,4 @@ alert_time_limit:
   days: 2
 
 smtp_host: smtp
-
-slack_webhook_url: "https://discordapp.com/api/webhooks/528026733048365056/Er5YtzwWqmM_H24DuCfH2RZrk73ZnsABuod5qI4HPeGET4z0752jAI4jkzWS_Fcrv-0B/slack"
+slack_webhook_url: "${ELASTALERT_DISCORD_WEBHOOK}/slack"

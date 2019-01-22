@@ -1,8 +1,16 @@
 #!/bin/bash
 sudo chown root:root logging/filebeat/filebeat.yml
 
-export ELK_TAG="6.3.0"
-#export ELK_TAG="6.5.0"
+export ELK_TAG="6.3.1"
+
+#load properties into environment
+set -o allexport
+source .env
+set +o allexport
+
+#replace variables in config file from environment
+envsubst < ./logging/elastalert/config/elastalert.yaml.presub > ./logging/elastalert/config/elastalert.yaml
+
 
     echo "------------------------------------------------------------"
     echo "############################### Creating separate docker network..."

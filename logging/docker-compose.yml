@@ -115,7 +115,7 @@ services:
         gelf-address: ${GELF_ADDRESS:-SUBFAIL}
         labels: container_group
     environment:
-      - NODE_OPTIONS=--max-old-space-size=200 # fixes memory leak (https://github.com/elastic/kibana/issues/5170)
+      - NODE_OPTIONS=--max-old-space-size=4096 #Elastalert needs more memory to install plugin 
 
 #########################################################
 

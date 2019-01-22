@@ -11,7 +11,7 @@ groups:
       summary: 'HIGH CPU USAGE WARNING: CONTAINER ''{{ $labels.name }}'' on ''{{ $labels.host
         }}'''
   - alert: container_eating_memory
-    expr: sum by(host, name) (container_memory_usage_bytes{name=~".+"}) > 1e+09
+    expr: sum by(host, name) (container_memory_usage_bytes{name=~".+"}) > 2000000000
     for: 5m
     annotations:
       description: '{{ $labels.name }} is eating up a LOT of memory. Memory consumption
