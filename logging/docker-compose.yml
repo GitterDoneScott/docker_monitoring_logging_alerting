@@ -19,7 +19,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
 
 #########################################################
@@ -42,7 +42,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
     command: logstash -f /config
 
@@ -71,7 +71,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
     networks:
       default:
@@ -96,7 +96,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
 
 #########################################################
@@ -112,7 +112,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
     environment:
       - NODE_OPTIONS=--max-old-space-size=4096 #Elastalert needs more memory to install plugin 
@@ -136,7 +136,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
 
 #########################################################
