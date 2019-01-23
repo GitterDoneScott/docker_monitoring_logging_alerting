@@ -26,17 +26,17 @@ services:
       - VIRTUAL_HOST=prometheus.${DNS_SUFFIX:-local}
       - LETSENCRYPT_HOST=prometheus.${DNS_SUFFIX:-local}
       - LETSENCRYPT_EMAIL=${LETS_ENC_EMAIL:-SUBFAIL}
-
+        
   blackboxprober:
     extends:
       file: docker-compose.yml
       service: blackboxprober
-
+ 
   snmpexporter:
     extends:
       file: docker-compose.yml
       service: snmpexporter
-
+        
   grafana:
     extends:
       file: docker-compose.yml
@@ -51,8 +51,7 @@ services:
       - VIRTUAL_HOST=dashboard.${DNS_SUFFIX:-local}
       - LETSENCRYPT_HOST=dashboard.${DNS_SUFFIX:-local}
       - LETSENCRYPT_EMAIL=${LETS_ENC_EMAIL:-SUBFAIL}
-#      - GF_SECURITY_ADMIN_PASSWORD=${PASSWORD}
-
+      
   alertmanager:
     extends:
       file: docker-compose.yml
@@ -64,12 +63,14 @@ services:
       - VIRTUAL_HOST=alertmanager.${DNS_SUFFIX:-local}
       - LETSENCRYPT_HOST=alertmanager.${DNS_SUFFIX:-local}
       - LETSENCRYPT_EMAIL=${LETS_ENC_EMAIL:-SUBFAIL}
-
+        
   alertmanager-discord:
     extends: 
       file: docker-compose.yml
       service: alertmanager-discord
-   
+    environment:
+      - DISCORD_WEBHOOK=${ALERTMANAGER_DISCORD_WEBHOOK:-SUBFAIL}
+
 networks:
   default:
     external:

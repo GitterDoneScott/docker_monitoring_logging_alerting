@@ -20,14 +20,14 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
 
 #########################################################
 
   # Runs on your node(s) and forwards container metrics to Prometheus.
   master-cadvisor:
-    image: google/cadvisor:v0.32.0   #v0.25.0
+    image: google/cadvisor:v0.32.0
     expose:
       - 8080
     volumes:
@@ -41,7 +41,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
 
 #########################################################
@@ -65,7 +65,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
 
 #########################################################
@@ -84,7 +84,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
 #    environment:
 #      - GF_SECURITY_ADMIN_USER=admin
@@ -108,12 +108,12 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
 
 #########################################################
   blackboxprober:
-    image: prom/blackbox-exporter:v0.13.0   #v0.10.0
+    image: prom/blackbox-exporter:v0.13.0
     cap_add:
       - NET_RAW
     volumes:
@@ -126,7 +126,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
 
   snmpexporter:
@@ -141,7 +141,7 @@ services:
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL}
+        gelf-address: udp://172.16.0.38:12201
         labels: container_group
 
   # Alertmanager messages to discord
@@ -153,11 +153,11 @@ services:
     labels:
       container_group: monitoring
     environment:
-      - DISCORD_WEBHOOK=${ALERTMANAGER_DISCORD_WEBHOOK:-SUBFAIL} 
+      - DISCORD_WEBHOOK=https://webhookhere 
     logging:
       driver: gelf
       options:
-        gelf-address: ${GELF_ADDRESS:-SUBFAIL} 
+        gelf-address: udp://172.16.0.38:12201 
         labels: container_group
 
 #########################################################
