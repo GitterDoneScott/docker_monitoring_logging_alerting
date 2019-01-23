@@ -9,6 +9,8 @@ services:
 
   # Runs on your node(s) and forwards node(host) metrics to Prometheus.
   master-nodeexporter:
+    cap_add:
+      - SYS_TIME
     image: prom/node-exporter:v0.17.0
     expose:
       - 9100
