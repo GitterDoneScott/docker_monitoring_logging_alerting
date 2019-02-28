@@ -1,0 +1,30 @@
+__praeco_query_builder: >-
+  {"query":{"logicalOperator":"all","children":[{"type":"query-builder-rule","query":{"rule":"response","selectedOperator":"greater
+  than","selectedOperand":"response","value":"399"}}]}}
+alert:
+  - slack
+alert_subject: 4xx5xx Alert
+alert_subject_args: []
+alert_text_type: exclude_fields
+doc_type: _default_
+filter:
+  - query:
+      query_string:
+        query: 'response:>399'
+index: logstash-*
+is_enabled: true
+name: greater than 200 4xx5xx responses
+num_events: 200
+query_key: container_name
+realert:
+  hours: 1
+#slack_msg_color: danger
+#slack_title_link: 'http://localhost:8080/rules/greater%20than%20200%204xx5xx%20responses'
+#slack_username_override: Praeco
+timeframe:
+  minutes: 5
+timestamp_field: '@timestamp'
+timestamp_type: iso
+type: frequency
+use_count_query: true
+use_strftime_index: false

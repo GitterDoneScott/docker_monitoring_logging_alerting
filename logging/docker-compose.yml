@@ -11,7 +11,7 @@ services:
     image: docker.elastic.co/beats/filebeat:${ELK_TAG}
     volumes:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
-      - /var/log:/host-logs
+      - /var/log:/host-logs:ro
     restart: always
     user: root
     labels:
@@ -39,6 +39,8 @@ services:
     networks:
       default:
         ipv4_address: 172.16.0.38
+    environment:
+      - LOG_LEVEL=error #debug      
     logging:
       driver: gelf
       options:
