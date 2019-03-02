@@ -1,4 +1,6 @@
 
+### +++ 2019/03/01 - Updated to EK 6.5.1 and migrated to Filebeat for container logs instead of GELF + Logstash
+
 ### +++ 2018/06/16 - Updated to ELK 6.3.0 and fixed a whole bunch of stuff... +++
 
 #### Please let me know, if something is broken, so I can fix it!

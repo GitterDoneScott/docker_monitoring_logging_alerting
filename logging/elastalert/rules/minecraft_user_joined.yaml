@@ -10,7 +10,7 @@ type: any
 
 # (Required)
 # Index to search, wildcard supported
-index: logstash-*
+index: filebeat-*
 
 # (Required)
 # A list of Elasticsearch filters used for find events
@@ -19,7 +19,7 @@ index: logstash-*
 filter:
 - query:
     query_string:
-      query: "\"joined the game\" AND container_name=minecraft"
+      query: "\"joined the game\" AND docker.container.name=minecraft"
 
 # (Required)
 # The alert is use when a match is found

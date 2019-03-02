@@ -8,16 +8,6 @@ services:
       file: docker-compose.yml
       service: master-filebeat
 
-  logstash:
-    extends:
-      file: docker-compose.yml
-      service: logstash
-
-  validate-logstash-config:
-    extends:
-      file: docker-compose.yml
-      service: validate-logstash-config
-
   elasticsearch:
     extends:
       file: docker-compose.yml

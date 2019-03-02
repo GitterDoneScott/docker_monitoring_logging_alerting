@@ -8,7 +8,7 @@
 actions:
   1:
     action: delete_indices
-    description: "Delete logstash- indices older than x days"
+    description: "Delete filebeat- indices older than x days"
     options:
       ignore_empty_list: True
       timeout_override:
@@ -17,7 +17,7 @@ actions:
     filters:
       - filtertype: pattern
         kind: prefix
-        value: logstash-
+        value: filebeat-
         exclude:
       - filtertype: age
         source: name

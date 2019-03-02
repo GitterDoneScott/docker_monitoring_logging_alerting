@@ -1,12 +1,10 @@
 # test using amtool: docker run -it --entrypoint=sh prom/alertmanager:latest
 route:
-  receiver: 'logstash'
+  receiver: 'discord'
   repeat_interval: 3h #3h
   group_interval: 10m #5m
   group_wait: 5m #1m
   routes:
-  - receiver: 'logstash'
-    continue: true
   - receiver: 'discord'
 
 receivers:
@@ -14,9 +12,3 @@ receivers:
   webhook_configs:
   - url: 'http://alertmanager-discord:9094'
     send_resolved: true
-- name: 'logstash'
-  webhook_configs:
-  # Whether or not to notify about resolved alerts.
-  - send_resolved: true
-    url: "http://logstash:8080/"
-  

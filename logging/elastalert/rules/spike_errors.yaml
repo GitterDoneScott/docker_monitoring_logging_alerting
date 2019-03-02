@@ -11,7 +11,7 @@ type: spike
 
 # (Required)
 # Index to search, wildcard supported
-index: logstash-*
+index: filebeat-*
 
 # (Required one of _cur or _ref, spike specific)
 # The minimum number of events that will trigger an alert

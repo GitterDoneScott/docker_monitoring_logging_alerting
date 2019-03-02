@@ -11,51 +11,13 @@ services:
     image: docker.elastic.co/beats/filebeat:${ELK_TAG}
     volumes:
       - ./filebeat/filebeat.yml:/usr/share/filebeat/filebeat.yml
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/log:/host-logs:ro
     restart: always
     user: root
     labels:
       container_group: logging
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://172.16.0.38:12201
-        labels: container_group
-
-#########################################################
-
-  # Aggregates logs and forwards them to Elasticsearch.
-  logstash:
-    image: docker.elastic.co/logstash/logstash-oss:${ELK_TAG}
-    expose:
-      - 12201/udp
-      - 5044
-    volumes:
-      - ./logstash/config:/config
-      - ./logstash/patterns:/opt/logstash/extra_patterns
-    restart: always
-    labels:
-      container_group: logging
-    networks:
-      default:
-        ipv4_address: 172.16.0.38
-    environment:
-      - LOG_LEVEL=error #debug      
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://172.16.0.38:12201
-        labels: container_group
-    command: logstash -f /config
-
-#########################################################
-
-  # Logstash configs can be a hassle. Run 'docker-compose run --rm validate-logstash-config' in order to quickly check your logstash config.
-  validate-logstash-config:
-    image: docker.elastic.co/logstash/logstash-oss:${ELK_TAG}
-    volumes:
-      - ./logstash/config:/config
-    command: logstash -t -f /config
 
 #########################################################
 
@@ -70,11 +32,6 @@ services:
     command: elasticsearch -Etransport.host=127.0.0.1 -Ebootstrap.memory_lock=false
     labels:
       container_group: logging
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://172.16.0.38:12201
-        labels: container_group
     networks:
       default:
         aliases:
@@ -91,15 +48,10 @@ services:
     environment:
       - "PERIOD=15min"
       - "KEEP_DAYS=14"
-      - "INDEX_PREFIX=logstash"
+      - "INDEX_PREFIX=filebeat"
     command: "--host elasticsearch --port 9200"
     labels:
       container_group: logging
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://172.16.0.38:12201
-        labels: container_group
 
 #########################################################
 
@@ -111,11 +63,6 @@ services:
     restart: always
     labels:
       container_group: logging
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://172.16.0.38:12201
-        labels: container_group
     environment:
       - NODE_OPTIONS=--max-old-space-size=4096 #Elastalert needs more memory to install plugin 
 
@@ -135,11 +82,6 @@ services:
       - ./elastalert/rule_templates:/opt/elastalert/rule_templates
     labels:
       container_group: monitoring
-    logging:
-      driver: gelf
-      options:
-        gelf-address: udp://172.16.0.38:12201
-        labels: container_group
 
 #########################################################
 ####                   Networking                    ####

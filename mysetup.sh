@@ -1,7 +1,7 @@
 #!/bin/bash
 sudo chown root:root logging/filebeat/filebeat.yml
 
-export ELK_TAG="6.3.1"
+export ELK_TAG="6.6.1"
 
 #load properties into environment
 set -o allexport
