@@ -52,3 +52,12 @@ groups:
       DESCRIPTION: Node {{ $labels.instance }} reboots too often ({{ $value }} is
         more than 1 times per 1d)
       SUMMARY: Node reboots too often
+  - alert: node_high_memory_usage
+    expr: 100 - ((node_memory_MemAvailable_bytes * 100) / node_memory_MemTotal_bytes) > 80
+    for: 10m
+    labels:
+      severity: Warning
+    annotations:
+      DESCRIPTION: Node {{ $labels.instance }}'s memory usage is > 80%
+      SUMMARY: Node memory utilization is high
+
