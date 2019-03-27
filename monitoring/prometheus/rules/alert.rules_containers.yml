@@ -1,15 +1,15 @@
 groups:
 - name: alert.rules_containers
   rules:
-  - alert: high_cpu_usage_on_container
-    expr: sum by(name, host) (rate(container_cpu_usage_seconds_total{name=~".+"}[5m]))
-      * 100 > 200
-    for: 5m
-    annotations:
-      description: '{{ $labels.name }} is using a LOT of CPU. CPU usage is {{ humanize
-        $value}}%.'
-      summary: 'HIGH CPU USAGE WARNING: CONTAINER ''{{ $labels.name }}'' on ''{{ $labels.host
-        }}'''
+#  - alert: high_cpu_usage_on_container
+#    expr: sum by(name, host) (rate(container_cpu_usage_seconds_total{name=~".+"}[5m]))
+#      * 100 > 200
+#    for: 5m
+#    annotations:
+#      description: '{{ $labels.name }} is using a LOT of CPU. CPU usage is {{ humanize
+#        $value}}%.'
+#      summary: 'HIGH CPU USAGE WARNING: CONTAINER ''{{ $labels.name }}'' on ''{{ $labels.host
+#        }}'''
 #  - alert: container_eating_memory
 #    expr: sum by(host, name) (container_memory_usage_bytes{name=~".+"}) > 10000000000
 #    for: 5m

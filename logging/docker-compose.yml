@@ -14,6 +14,7 @@ services:
       - /var/lib/docker/containers:/var/lib/docker/containers:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/log:/host-logs:ro
+      - /opt/containerlogs:/containerlogs:ro #location to mount logs of containers that don't support stdout
     restart: always
     user: root
     labels:

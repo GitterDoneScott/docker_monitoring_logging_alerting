@@ -3,7 +3,9 @@ filebeat.modules:
   # system logs
   syslog:
     enabled: true
-    var.paths: [/host-logs/*]
+    var.paths:
+     - /host-logs/*
+     - /containerlogs/*/*
   # Authorization logs
   auth:
     enabled: true
