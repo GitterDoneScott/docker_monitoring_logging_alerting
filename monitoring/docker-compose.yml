@@ -9,12 +9,22 @@ services:
 
   # Runs on your node(s) and forwards node(host) metrics to Prometheus.
   master-nodeexporter:
-    cap_add:
-      - SYS_TIME
     image: prom/node-exporter:v0.17.0
     expose:
       - 9100
-    restart: always
+    user: root
+    privileged: true
+    volumes:
+      - /proc:/host/proc:ro
+      - /sys:/host/sys:ro
+      - /:/rootfs:ro
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.rootfs=/rootfs'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
+    restart: unless-stopped
+#    network_mode: host #need a solutoin for exposing this node's nostname for scraping in host network mode    
     labels:
       container_group: monitoring
 
