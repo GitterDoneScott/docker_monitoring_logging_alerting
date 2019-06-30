@@ -105,3 +105,6 @@ scrape_configs:
       - target_label: __address__
         replacement: blackboxprober:9115
 
+  - job_name: 'pihole'
+    static_configs:
+      - targets: ['pihole-exporter:9311']

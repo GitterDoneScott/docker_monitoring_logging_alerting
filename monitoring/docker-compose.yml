@@ -67,7 +67,7 @@ services:
 
   # Pretty frontend to explore and check out all your metrics.
   grafana:
-    image: grafana/grafana:5.4.2   #5.2.2
+    image: grafana/grafana:6.1.6   #5.4.2
     expose:
       - 3000
 #    volumes:
