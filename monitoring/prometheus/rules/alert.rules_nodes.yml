@@ -24,8 +24,7 @@ groups:
     labels:
       severity: High
     annotations:
-      DESCRIPTION: Node {{ $labels.instance }}'s filesystem {{ $labels.filesystem
-        }} has less than 20% disk space remaining.
+      DESCRIPTION: Node {{ $labels.instance }}'s filesystem {{ $labels.mountpoint }} has {{ $value }}% disk space remaining.
       SUMMARY: Node filesystem usage is high
   - alert: node_filesystem_low_diskspace_predict
     expr: predict_linear(node_filesystem_avail_bytes{mountpoint!~"^/etc.*"}[1h], 24
@@ -34,7 +33,7 @@ groups:
     labels:
       severity: Critical
     annotations:
-      DESCRIPTION: Node {{ $labels.instance }}'s filesystem {{ $labels.filesystem
+      DESCRIPTION: Node {{ $labels.instance }}'s filesystem {{ $labels.mountpoint
         }} predicted to fill in 24 hours.
       SUMMARY: Node filesystem predicted to fill to capacity in 24 hours
   - alert: node_restarted
