@@ -9,7 +9,7 @@ services:
 
   # Runs on your node(s) and forwards node(host) metrics to Prometheus.
   master-nodeexporter:
-    image: prom/node-exporter:v0.17.0
+    image: prom/node-exporter:v0.18.1
     expose:
       - 9100
     user: root
@@ -48,7 +48,7 @@ services:
 
   # Storage and search backend. Gets all metrics from cAdvisor and Nodeexporter and is the backend that Grafana runs on.
   prometheus:
-    image: prom/prometheus:v2.6.0   #v1.7.1
+    image: prom/prometheus:v2.12.0
     expose:
       - 9090
     volumes:
@@ -67,7 +67,7 @@ services:
 
   # Pretty frontend to explore and check out all your metrics.
   grafana:
-    image: grafana/grafana:6.1.6   #5.4.2
+    image: grafana/grafana:6.3.5
     expose:
       - 3000
 #    volumes:
@@ -83,7 +83,7 @@ services:
 
   # Alerting plugin wrapping Prometheus and taking care of your metric alerting needs.
   alertmanager:
-    image: prom/alertmanager:v0.8.0
+    image: prom/alertmanager:v0.19.0
     expose:
       - 9093
     restart: always
@@ -91,14 +91,14 @@ services:
       - ./alertmanager/:/etc/alertmanager/
       - ../storage/alertmanager/:/alertmanager
     command:
-      - '-config.file=/etc/alertmanager/config.yml'
-      - '-storage.path=/alertmanager'
+      - '--config.file=/etc/alertmanager/config.yml'
+      - '--storage.path=/alertmanager'
     labels:
       container_group: monitoring
 
 #########################################################
   blackboxprober:
-    image: prom/blackbox-exporter:v0.13.0
+    image: prom/blackbox-exporter:v0.15.0
     cap_add:
       - NET_RAW
     volumes:
@@ -110,7 +110,7 @@ services:
       container_group: monitoring
 
   snmpexporter:
-    image: prom/snmp-exporter:v0.14.0
+    image: prom/snmp-exporter:v0.15.0
     volumes:
       - ./snmpexporter:/etc/snmp_exporter/
     ports:
