@@ -24,7 +24,7 @@ services:
 
   # Storage and search backend. Gets all logs from Logstash and is the backend that Kibana runs on.
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:${ELK_TAG}
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELK_TAG}
     expose:
       - 9200
     ports:
@@ -58,7 +58,7 @@ services:
 
   # Pretty frontend to explore and check out all your logs.
   kibana:
-    image: docker.elastic.co/kibana/kibana-oss:${ELK_TAG}
+    image: docker.elastic.co/kibana/kibana:${ELK_TAG}
     expose:
       - 5601
     restart: always
